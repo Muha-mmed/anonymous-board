@@ -27,29 +27,29 @@ pip install fastapi sqlalchemy uvicorn
 
 ```
 ## Create Post
-    ```json
-    {
-    "content": "your anonymous message here"
-    }
+```json
+{
+"content": "your anonymous message here"
+}
     ```
 ## Response
-    ```json
-    {
-        "content": "your anonymous message here",
-        "link": "127.0.0.1:8000/read/anonymous-dd3c"
-    }
-    ```
+```json
+{
+    "content": "your anonymous message here",
+    "link": "127.0.0.1:8000/read/anonymous-dd3c"
+}
+```
 ## Read Post
 
-*get "127.0.0.1:8000/read/{add_post.link}"
+- "127.0.0.1:8000/read/{add_post.link}"
 
 ## response
-    ```json
-    {
-  "content": "your anonymous message here"
-    }
-    ```
+```json
+{
+"content": "your anonymous message here"
+}
+```
 ## Run the app
 
-    ```bash 
-    uvicorn main:app --reload
+```bash 
+uvicorn main:app --reload
