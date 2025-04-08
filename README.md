@@ -31,7 +31,8 @@ pip install fastapi sqlalchemy uvicorn
 {
 "content": "your anonymous message here"
 }
-    ```
+```
+
 ## Response
 ```json
 {
