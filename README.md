@@ -42,7 +42,7 @@ pip install fastapi sqlalchemy uvicorn
 ```
 ## Read Post
 
-- "127.0.0.1:8000/read/{add_post.link}"
+- send get request to 127.0.0.1:8000/read/anonymous-dd3c
 
 ## response
 ```json
