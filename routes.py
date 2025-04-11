@@ -2,10 +2,10 @@
 from fastapi import APIRouter, HTTPException,Depends
 from sqlalchemy.orm import Session
 
-
 from model import Post
 from db import get_db
 from schemas import PostSchema
+
 router = APIRouter()
 
 db_dependency: Session = Depends(get_db)
