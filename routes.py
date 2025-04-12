@@ -4,14 +4,14 @@ from sqlalchemy.orm import Session
 
 from model import Post
 from db import get_db
-from schemas import PostSchema
+from schemas import PostSchema,CreatePostSchema
 
 router = APIRouter()
 
 db_dependency: Session = Depends(get_db)
 
 @router.post("/post")
-def create_post(post: PostSchema,db:Session=db_dependency):
+def create_post(post: CreatePostSchema,db:Session=db_dependency):
     add_post = Post(content =post.content)
     if not add_post:
         raise HTTPException(status_code=409,detail="conflict")
@@ -28,3 +28,10 @@ def create_post(link: str,db:Session=db_dependency):
     if not post:
         raise HTTPException(status_code=404,detail="hey link don't exist")
     return {"content": post.content}  
+
+@router.get("/read",response_model=list[PostSchema])
+def all_post(db:Session=db_dependency):
+    posts = db.query(Post).all()
+    if not posts:
+        raise HTTPException(status_code=404,detail="hey link don't exist")
+    return posts 
